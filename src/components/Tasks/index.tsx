@@ -40,7 +40,9 @@ const Tasks = ({ tasks, onDelete, onComplete }: Props) => {
                     />
                 ))}
             </List>
-            <Message />
+            {tasks.length <= 0 && (
+                <Message />
+            )}
         </Container>
     )
 }

@@ -18,7 +18,7 @@ const Task = ({task, onDelete, onComplete}: Props) => {
                         <NotCheck onClick={() => onComplete(task.id)}/>
                 }
 
-            <p>{task.subject}</p>
+            <p className={task.isCompleted ? "textCompleted" : ""}>{task.subject}</p>
 
             <Delete onClick={() => onDelete(task.id)}/>
         </Container>

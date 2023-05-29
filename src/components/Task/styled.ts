@@ -19,6 +19,11 @@ export const Container = styled.div`
         color: var(--gray-100);
         margin-right: auto;
     }
+
+    p.textCompleted {
+        color: var(--gray-300);
+        text-decoration: line-through;
+    }
 `;
 
 export const Delete = styled(DeleteForever)`

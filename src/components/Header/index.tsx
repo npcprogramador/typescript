@@ -13,7 +13,9 @@ const Header = ({ onAddTask }: Props) => {
     function handleSubmit(event: FormEvent) {
         event.preventDefault();
 
-        onAddTask(subject);
+        if(subject !== '') {
+            onAddTask(subject);
+        } return;
         setSubject("")
     }
 

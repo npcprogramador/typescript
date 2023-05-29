@@ -6,6 +6,7 @@ import { ITask } from '../../App';
 
 interface Props {
     tasks: ITask[];
+    // defide o valor de taskId como string, ao mesmo tempo que indica que nada vai retornar por enquanto, assim como um const vazia para receber valor depois.
     onDelete: (taskId: string) => void;
 }
 

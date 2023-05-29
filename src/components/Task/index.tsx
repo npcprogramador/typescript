@@ -1,21 +1,22 @@
-import { useState } from 'react';
 import { Container, Delete, Check, NotCheck } from './styled';
+import { ITask } from '../../App';
 
 
-const Task = () => {
-    const [isCheck, setIsCheck] =  useState(false)
+interface Props {
+    task: ITask;
+}
 
-
+const Task = ({task}: Props) => {
     return (
         <Container>
                 {
-                    isCheck ? 
-                        <Check onClick={() => setIsCheck(false)}/>
+                    task.isCompleted ? 
+                        <Check onClick={() => alert('false')}/>
                         :
-                        <NotCheck onClick={() => setIsCheck(true)}/>
+                        <NotCheck onClick={() => alert('true')}/>
                 }
 
-            <p>Integrando sistema de notas na nossa parte superior de coluna</p>
+            <p>{task.subject}</p>
 
             <Delete />
         </Container>

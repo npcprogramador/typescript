@@ -18,7 +18,7 @@ const Task = ({task}: Props) => {
 
             <p>{task.subject}</p>
 
-            <Delete />
+            <Delete onClick={() => alert('Deletado')}/>
         </Container>
     )
 }

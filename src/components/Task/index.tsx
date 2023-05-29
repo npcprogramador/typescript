@@ -4,9 +4,10 @@ import { ITask } from '../../App';
 
 interface Props {
     task: ITask;
+    onDelete: (taskId: string) => void;
 }
 
-const Task = ({task}: Props) => {
+const Task = ({task, onDelete}: Props) => {
     return (
         <Container>
                 {
@@ -18,7 +19,7 @@ const Task = ({task}: Props) => {
 
             <p>{task.subject}</p>
 
-            <Delete onClick={() => alert('Deletado')}/>
+            <Delete onClick={() => onDelete(task.id)}/>
         </Container>
     )
 }

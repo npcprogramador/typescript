@@ -10,7 +10,7 @@ export interface ITask {
 }
 
 function App() {
-  const [tasks] = useState<ITask[]>([
+  const [tasks, setTasks] = useState<ITask[]>([
     {
       id: '1',
       subject: 'Tarefa de casa',
@@ -28,11 +28,28 @@ function App() {
     }
   ]);
 
+
+  function addTask(taskTitle: string){
+    setTasks([
+      ...tasks,
+      {
+        id: crypto.randomUUID(),
+        subject: taskTitle,
+        isCompleted: false
+      }
+    ]);
+  }
+
+  function deleteTaskId(taskId: string) {
+    const newTasks = tasks.filter((task)=> task.id !== taskId)
+    setTasks(newTasks)
+  }
+
   return (
     <>
       <GlobalStyle />
-      <Header />
-      <Tasks tasks={tasks}/>
+      <Header onAddTask={addTask}/>
+      <Tasks tasks={tasks} onDelete={deleteTaskId}/>
     </>
   )
 }

@@ -6,10 +6,11 @@ import { ITask } from '../../App';
 
 interface Props {
     tasks: ITask[];
+    onDelete: (taskId: string) => void;
 }
 
 
-const Tasks = ({ tasks }: Props) => {
+const Tasks = ({ tasks, onDelete }: Props) => {
     //qauntidade de tarefas.
     const tasksQuantity = tasks.length;
     //quantidade de tarefas marcadas como concluídas.
@@ -29,7 +30,7 @@ const Tasks = ({ tasks }: Props) => {
             </Header>
             <List>
                 {tasks.map((task) => (
-                    <Task key={task.id} task={task}/>
+                    <Task key={task.id} task={task} onDelete={onDelete}/>
                 ))}
             </List>
             <Message />

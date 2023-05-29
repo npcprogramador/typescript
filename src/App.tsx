@@ -45,11 +45,30 @@ function App() {
     setTasks(newTasks)
   }
 
+  function toggleTaskCompletedById(taskId: string) {
+    const newTasks = tasks.map(task => {
+      if(task.id === taskId) {
+        return {
+          //recebe toda a task novamente
+          ...task,
+          //recebe o valor inverso do valor anterior
+          isCompleted: !task.isCompleted
+        }
+      }
+      return task;
+    });
+    setTasks(newTasks);
+  }
+
   return (
     <>
       <GlobalStyle />
       <Header onAddTask={addTask}/>
-      <Tasks tasks={tasks} onDelete={deleteTaskId}/>
+      <Tasks
+        tasks={tasks}
+        onDelete={deleteTaskId}
+        onComplete={toggleTaskCompletedById}  
+      />
     </>
   )
 }

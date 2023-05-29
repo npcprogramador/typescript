@@ -8,10 +8,11 @@ interface Props {
     tasks: ITask[];
     // defide o valor de taskId como string, ao mesmo tempo que indica que nada vai retornar por enquanto, assim como um const vazia para receber valor depois.
     onDelete: (taskId: string) => void;
+    onComplete: (taskId: string) => void;
 }
 
 
-const Tasks = ({ tasks, onDelete }: Props) => {
+const Tasks = ({ tasks, onDelete, onComplete }: Props) => {
     //qauntidade de tarefas.
     const tasksQuantity = tasks.length;
     //quantidade de tarefas marcadas como concluídas.
@@ -31,7 +32,12 @@ const Tasks = ({ tasks, onDelete }: Props) => {
             </Header>
             <List>
                 {tasks.map((task) => (
-                    <Task key={task.id} task={task} onDelete={onDelete}/>
+                    <Task
+                        key={task.id}
+                        task={task}
+                        onDelete={onDelete}
+                        onComplete={onComplete}
+                    />
                 ))}
             </List>
             <Message />

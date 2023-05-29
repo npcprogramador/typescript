@@ -5,16 +5,17 @@ import { ITask } from '../../App';
 interface Props {
     task: ITask;
     onDelete: (taskId: string) => void;
+    onComplete:  (taskId: string) => void;
 }
 
-const Task = ({task, onDelete}: Props) => {
+const Task = ({task, onDelete, onComplete}: Props) => {
     return (
         <Container>
                 {
                     task.isCompleted ? 
-                        <Check onClick={() => alert('false')}/>
+                        <Check onClick={() => onComplete(task.id)}/>
                         :
-                        <NotCheck onClick={() => alert('true')}/>
+                        <NotCheck onClick={() => onComplete(task.id)}/>
                 }
 
             <p>{task.subject}</p>
